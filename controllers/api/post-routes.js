@@ -39,7 +39,10 @@ router.get('/', (req, res) => {
   });
 
   router.get('/:id', (req, res) => {
-    Post.findAll({
+    Post.findOne({
+      where: {
+        id: req.params.id
+      },
       order: [['created_at', 'DESC']],
       attributes: [
         'id',
